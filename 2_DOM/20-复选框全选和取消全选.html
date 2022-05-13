@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>关于正则表达式</title>
+  <script type="text/javascript">
+    window.onload = function(){
+      var allChoose = document.getElementById("allChoose");
+      var checkboxs = document.getElementsByName("checkbox");
+
+      // 点击全选/取消全选
+      document.getElementById("allChoose").onclick = function(){
+        for (var i = 0; i < checkboxs.length; i++) {
+          checkboxs[i].checked = allChoose.checked;
+        }
+      }
+
+      // 点击三个选项，全选中时候勾选全选选项，否则取消勾选全选选项
+      for (var i = 0; i < checkboxs.length; i++) {
+        checkboxs[i].onclick = function(){
+          var flag = true;
+          for (var j = 0; j < checkboxs.length; j++) {
+            flag &= checkboxs[j].checked;
+          }
+          allChoose.checked = flag;
+        }
+      }
+
+    }
+  </script>
+</head>
+<body>
+  <input type="checkbox" id="allChoose"> 全选 <br>
+  <input type="checkbox" name="checkbox" id="smoke">抽烟 <br>
+  <input type="checkbox" name="checkbox" id="drink">喝酒 <br>
+  <input type="checkbox" name="checkbox" id="play">打豆豆
+</body>
+</html>

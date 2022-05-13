@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>js中的事件</title>
+    <script type="text/javascript">
+        /**
+         * 执行过程：
+         * 页面加载过程中将a函数注册给了load事件
+         * 页面加载完毕之后，执行函数a，将b函数注册给了id为“btn”的按钮的click事件
+         * 当onclick发生时，执行函数b
+         */
+        window.onload = function a(){
+            document.getElementById("btn").onclick = function b(){
+                alert("鼠标点击按钮");
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="按钮" id="btn">
+</body>
+</html>

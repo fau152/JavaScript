@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>js中的函数</title>
+    <script type="text/javascript">
+      /*
+      * js中的函数的定义：
+      * 语法格式：
+      *   第一种方式：
+      *   function 函数名(形式参数列表){
+      *     函数体
+      *   }
+      *   第二种方式：
+      *   函数名 = function(形式参数列表){
+      *     函数体
+      *   }
+      *
+      * js中函数不需要指定返回值类型，返回什么类型都行
+      *
+      * 参数传递：
+      * Js中的函数在调用的时候，参数的类型没有限制，并且参数的个数也没有限制
+      * 传递传递参数的数量多于或者少于形参数量，按照从左至右依次赋值
+      *
+      * Js中的函数没有重载，函数名不能重名，如果重名的话，后定义的函数会将前面定义的函数覆盖
+      * Js中分辨两个函数只能通过函数名来分辨
+      *
+      * */
+
+      function sum(a,b){
+          window.alert(a + " + " + b + " = " + (a+b));
+      }
+
+      function test(username){
+          alert("test");
+      }
+
+      test = function(){
+          alert("test test");
+      }
+    </script>
+</head>
+<body>
+    <input type="button" value="计算10 + 20" onclick="sum(10,20)"> <!--10 + 20 = 30-->
+    <input type="button" value="只传一个参数" onclick="sum(10)"> <!--10 + undefined = NaN-->
+    <input type="button" value="不传参数" onclick="sum()"> <!--undefined + undefined = NaN-->
+    <input type="button" value="传3个值" onclick="sum(10,20,30)"> <!--10 + 20 = 30-->
+
+    <input type="button" value="函数能够重载吗？" onclick="test('李四')"> <!--test test，答案是不能-->
+</body>
+</html>

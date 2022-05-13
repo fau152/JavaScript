@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECMAScript,DOM,BOM</title>
+    <script type="text/javascript">
+        /**
+         *      ECMAScript是ECMA制定的262标准，JavaScript和JScript都遵循这个标准
+         * ECMAScript是JavaScript的核心语法
+         *      DOM编程是通过JavaScript对HTML中的dom节点进行操作，DOM是有规范的，
+         * DOM规范是W3C制定的
+         *      BOM编程是对浏览器本身操作，例如：前进，后退，地址栏，关闭窗口，弹窗等。
+         * 由于浏览器由不同的厂家制造，所以BOM缺少规范，一般只是有一个默认的行业规范
+         *
+         * BOM和DOM的区别：
+         *  BOM的顶级对象是window
+         *  DOM的顶级对象是document
+         *  BOM是包含DOM的
+         *      实际上document是window.document 只是，window是可以省略的
+         */
+
+        window.onload = function (){
+            document.getElementById("btn1").onclick = function(){
+                document.getElementById("txt2").value = document.getElementById("txt1").value;
+            }
+        }
+
+
+    </script>
+</head>
+<body>
+    <input type="text" id="txt1">
+    <input type="text" id="txt2">
+    <br>
+    <input type="button" value="把第一个文本框的内容赋值给第二个文本框" id="btn1">
+
+    <hr>
+    <br>
+    <!--this表示当前input对象-->
+    <input type="text" onblur="alert(this.value)">
+</body>
+</html>

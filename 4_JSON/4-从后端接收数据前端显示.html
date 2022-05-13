@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <meta charset="utf-8">
+    <title>后端接收数据，前端显示</title>
+  <script type="text/javascript">
+    var data = {
+      "total":4,
+      "users":[
+        {"username":"zhangsan","password":"123456"},
+        {"username":"lisi","password":"123"},
+        {"username":"wangwu","password":"444"},
+        {"username":"xiaoming","password":"554"}
+      ]
+    }
+
+    window.onload = function(){
+      var html = "";
+      var users = data.users;
+      for (var i = 0; i < users.length; i++) {
+        html += "<tr>";
+        html += "<td>" + users[i].username + "</td>";
+        html += "<td>" + users[i].password + "</td>";
+        html += "</tr>";
+      }
+      document.getElementById("tbody").innerHTML = html;
+      document.getElementById("count").innerHTML = data.total;
+    }
+
+  </script>
+</head>
+<body>
+<h2>用户信息清单</h2>
+<hr>
+<table border="1px">
+  <thead>
+    <tr>
+      <th>用户名</th>
+      <th>密码</th>
+    </tr>
+  </thead>
+  <tbody id="tbody">
+
+  </tbody>
+</table>
+共有<span id="count">0</span>条记录
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>js代码捕捉回车键</title>
+    <script type="text/javascript">
+        window.onload = function() {
+          var flag = true;
+          document.getElementById("change").onclick = function (){
+            var txt = document.getElementById("txt");
+            if(flag){
+              txt.type = "button";
+              txt.value = "嘿，我变成按钮了。"
+            }else{
+              txt.type = "text";
+              txt.value = "嘿，我又变回来了。"
+            }
+            flag = !flag;
+          }
+
+          document.getElementById("input").onkeydown = function (keyEvent){
+              if(keyEvent.keyCode === 13){
+                  alert("搜索中，请稍后...");
+              }
+          }
+        }
+    </script>
+</head>
+<body>
+  <input type="text" id="txt">
+  <input type="button" value="将文本框变成按钮" id="change">
+  <br>
+  <input type="text" id="input">
+  
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>js代码捕捉回车键</title>
+    <script type="text/javascript">
+        /**
+         * js中的数组：
+         *  定义数组：
+         *      var arr = [false,1,"haha"];
+         *   注意：1. js中的数组使用[]定义
+         *        2. js中的数组元素类型不要求统一
+         *        3. js中的数组元素个数随意，自动扩容
+         *  访问数组：
+         *      arr[index]
+         */
+
+        /**
+         * js中的控制语句：
+         *  1. if
+         *  2. switch
+         *
+         *  3. while
+         *  4. do while
+         *  5. for
+         *
+         *  6. continue
+         *  7. break
+         *
+         *  8. for...in（了解）
+         *      语法格式：
+         *          for(var index in arr)
+         *      用法机理：
+         *          类似于java中的for-each，但是有差别
+         *          这里的index不是arr中的元素，而是arr的下标，
+         *          如果arr是对象，则index是字段名，可以使用”对象名[字段名]“的格式访问对象的属性值
+         *      两个用法：
+         *          遍历数组
+         *          遍历类中的属性
+         *  9. with（了解）
+         *      语法格式：
+         *          with(u){
+         *
+         *          }
+         *      语法机理：
+         *          相当于在大括号中用到的值前面加"u."
+         *      用法：可以用于遍历对象的属性值
+         *
+         */
+
+        var arr = [1,0.2,false,"abc"];
+        function test1(){
+            for(var i in arr){
+                alert(arr[i]);
+            }
+        }
+
+        function Student(id,name,age){
+            this.id = id;
+            this.name = name;
+            this.age = age;
+        }
+
+        var stu = new Student(2, "张三", 20);
+        function test2(){
+            for (var stuKey in stu) {
+                alert(stu[stuKey]);
+            }
+        }
+
+        function test3() {
+            with(stu){
+                alert(" id:" + id + " name:" + name + " age:" + age);
+                alert(stu.id); //显示2，没有报错
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="遍历数组" onclick="test1()">
+    <input type="button" value="forin遍历对象的属性值" onclick="test2()">
+    <input type="button" value="with遍历对象的属性值" onclick="test3()">
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>局部变量和全局变量</title>
+    <script type="text/javascript">
+      /**
+       * 全局变量：
+       *  在函数体之外声明的变量属于全局变量，全局变量的生命周期是：
+       *    浏览器打开时声明，浏览器关闭时销毁，尽量少用。
+       *    因为全局变量声明之后就一直存在于内存当中，耗费内存空间
+       *    能使用局部变量就使用局部变量
+       * 局部变量：
+       *    局部变量就是在函数体之内的变量，包括一个函数的形参
+       *    局部变量的生命周期是：函数开始执行时局部变量定义，函数执行结束后局部变量释放
+       *
+       * 访问规则：
+       *    就近原则
+       *    访问一个没有定义的变量，会报错
+       *    当一个变量声明的时候，没有加上var关键字，例如：a = 100;
+       *        那么无论它在哪里声明，他都是一个全局变量
+       */
+
+      var i = 100;
+
+      function test(){
+        var i = "jack";
+        a = 18;
+        alert(i);
+      }
+
+      function test2(){
+          alert(a);
+      }
+
+      test();
+      alert(a);
+    </script>
+</head>
+<body>
+    <input type="button" value="输出i" onclick="test()">
+    <input type="button" value="变量不加var" onclick="test2()">
+</body>
+</html>

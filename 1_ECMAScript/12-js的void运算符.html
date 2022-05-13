@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>js代码捕捉回车键</title>
+    <script type="text/javascript">
+        /**
+         * void运算符：
+         *  语法格式：
+         *     void(表达式)
+         *  运算机理：
+         *     执行括号中的表达式，但是不返回执行之后的结果
+         *
+         * 实际上void运算符只有以下例子中的这一个用法
+         */
+    </script>
+</head>
+<body>
+<!--要求：
+    1. 保留超链接的样式：下划线，鼠标样式等
+    2. 点击之后执行一段js代码
+    3. 点击之后还不能跳转，包括不能跳转到本页面
+-->
+
+
+  页面顶部
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<!--
+    以下代码中的javascript:不可省略，
+    他的作用是告诉浏览器后面是一段javascript代码，否则，浏览器会将void(0)当做一个地址处理
+-->
+    <a href="" onclick="alert('超链接被点击')">空字符串</a> <!--跳转到本页面-->
+    <a href="#" onclick="alert('超链接被点击')">#</a> <!--跳转到本页面-->
+    <a href=null onclick="alert('超链接被点击')">null</a> <!--404-->
+    <a href="void(0)" onclick="alert('超链接被点击')">void(0)</a> <!--404-->
+    <a href="javascript:void(0)" onclick="alert('超链接被点击')">javascript:void(0)</a> <!--只有这个被点击的时候没有发生跳转-->
+</body>
+</html>

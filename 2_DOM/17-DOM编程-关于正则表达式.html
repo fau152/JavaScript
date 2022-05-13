@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>关于正则表达式</title>
+  <script type="text/javascript">
+    /**
+     * 1. 什么是正则表达式，有什么用？
+     *    正则表达式：Regular Expression
+     *    正则表达式主要用在字符串格式匹配方面。
+     * 2.正则表达式实际上是一门独立的学科，大多数编程语言都支持正则表达式。
+     *    正则表达式最初使用在医学方面，用来表示神经符号等。目前使用最多的是计算机
+     *    编程领域，用作字符串格式匹配。包括搜索方面等。
+     * 3. 正则表达式对于js来说掌握哪些内容？
+     *    1）：常用的正则表达式要认识
+     *    2）：简单地正则表达式要会写
+     *    3）：他人编写的正则表达式要能看懂
+     *    4）：在js中怎么创建正则表达式对象（new对象）
+     *    5）：在js中，正则表达式对象有哪些函数？（调函数）
+     *    6）：要能够快速在网络上找到自己需要的正则表达式， 并测试其有效性
+     *
+     * 4. 常用的正则表达式符号：
+     *      . 匹配除换行符以外的任意字符
+     *      \w 匹配字母，数字，下划线，汉字
+     *      \s 匹配任意的空白符
+     *      \d 匹配数字
+     *      \b 匹配单词的开始或结束
+     *      ^ 匹配字符串的开始
+     *      $ 匹配字符串的结束
+     *
+     *      * 重复0次或多次
+     *      + 1次或多次
+     *      ? 0或1次
+     *      {n} n次
+     *      {n,} n多次
+     *      {n,m} n到m次
+     *
+     *      \W 匹配任意 非 字母，数字，下划线，汉字的字符
+     *      \S 匹配任意 非 空白符的字符
+     *      \D 匹配任意 非 数字的字符
+     *      \B 匹配 非 单词的开头和结束位置
+     *      [^x] 匹配除x之外的任意字符
+     *      [^aeiou] 匹配除了aeiou这几个字母之外的任意字符
+     *
+     *      正则表达式中的小括号优先级较高
+     *      [0-9]表示1到9中的任意1个数字（次数是1）
+     *      [0-9a-zA-Z] 表示0到9，a到z，A到Z中的一个
+     *      [0-9a-zA-A-] 表示0到9，a到z，A到Z，-中的一个
+     *      | 表示或者
+     *
+     *
+     * 简单的正则表达式要会写：
+     *      QQ号的正则表达式：^[1-9][0-9]{4,}$
+     *
+     * email正则：
+     *      ^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$
+     *      解析：
+     *      \w+ 数字，字母，下划线，汉字重复一次或多次
+     *      ([-+.]\w+)* -或+或. 和 一个以上（数字，字母，下划线，汉字） 重复0或多次
+     *      @ @号
+     *      \w+([-.]\w+)* 同上
+     *      \. 转义点号
+     *      \w+([-.]\w+)*
+     *
+     * 怎么创建正则表达式对象，怎么调用正则表达式对象的方法？
+     *    第一种创建方式：
+     *        var regExp = /正则表达式/[flags]
+     *    第二种创建方式：
+     *        var regExp = new RegExp("pattern",["flags"])
+     *
+     *    flags是可选项。可以取的值：
+     *      g 全文查找出现的所有的pattern
+     *      i 忽略大小写
+     *      m 多行查找（ES规范制定之后才支持） 如果pattern是正则表达式，m参数必须省略，也就是说pattern可以是普通的字符串
+     *      如果是普通字符串，则g,i分别表示全文检索该字符串，忽略大小写全文检索该字符串
+     *
+     * 正则表达式对象的方法：
+     *      test()方法
+     *        返回值：true格式匹配成功，false匹配失败
+     *
+     */
+    window.onload = function() {
+        //失去焦点进行验证
+        document.getElementById("email").onblur = function(){
+          var email = document.getElementById("email").value;
+          //创建正则表达式对象
+          var regExp = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+          if(regExp.test(email)){
+            //正则表达式合法
+            document.getElementById("emailError").innerText = "√";
+            document.getElementById("emailError").style = "color:MediumSeaGreen;font-weight: bold;";
+          }else{
+              //正则表达式不合法
+              document.getElementById("emailError").innerText = "请输入合法的邮箱地址";
+              document.getElementById("emailError").style = "color:red";
+          }
+        }
+
+        document.getElementById("email").onfocus = function(){
+            document.getElementById("emailError").innerText = "";
+        }
+    }
+  </script>
+</head>
+<body>
+    <input type="text" id="email">
+    <span id="emailError"></span>
+</body>
+</html>

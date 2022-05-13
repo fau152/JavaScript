@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>显示网页时钟</title>
+  <script type="text/javascript">
+    /**
+     * Js中内置的支持类Date，可以用来获取时间日期
+     *
+     */
+
+    //获取当前系统时间
+    /*var nowTime = new Date();
+
+    //转换成具有本地语言环境的时间格式
+    document.write(nowTime);
+    document.write("<br>");
+    document.write("<br>");
+    document.write(nowTime.toLocaleString());
+    document.write("<br>");
+    document.write("<br>");
+    //当以上格式不是我们想要的时，可以通过获取日期的年月日，自己定制日期显示格式
+    var t = new Date();
+    var year = t.getFullYear();
+    var month = t.getMonth()+1; //0~11
+    var dayOfWeek = t.getDay(); //这个并不是获取日，而是获取一周中的第几天(1~7)
+    var day = t.getDate();
+
+    document.write(year + "年" + month + "月" + day + "日，星期" + dayOfWeek);
+
+    document.write("<br>");
+    document.write("<br>");
+    //获取时间戳
+    document.write(t.getTime());*/
+
+    function getSystemTime(){
+      var time = new Date();
+      time = time.toLocaleString();
+      document.getElementById("timeDiv").innerHTML = time;
+    }
+
+    function start(){
+      v = window.setInterval(getSystemTime,1000);
+    }
+
+    function stop(){
+      window.clearInterval(v);
+    }
+  </script>
+</head>
+<body>
+<br><br><br><br><br><br>
+<input type="button" value="显示系统时间" onclick="start()">
+<input type="button" value="停止系统时间" onclick="stop()">
+<br>
+<div id="timeDiv"></div>
+</body>
+</html>

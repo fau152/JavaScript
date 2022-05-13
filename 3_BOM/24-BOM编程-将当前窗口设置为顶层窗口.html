@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <meta charset="utf-8"/>
+    <title>将当前窗口设置为顶层窗口</title>
+  <script type="text/javascript">
+    //如果当前窗口不是顶层窗口，将当前窗口设置成顶层窗口
+    function setTop(){
+      if(window.top !== window.self){
+        window.top.location = window.self.location;  //location表示路径
+      }
+    }
+  </script>
+</head>
+<body>
+<h5>003哈哈哈</h5>
+<input type="button" value="如果当前窗口不是顶层窗口，将当前窗口设置为顶层窗口" onclick="setTop()">
+</body>
+</html>

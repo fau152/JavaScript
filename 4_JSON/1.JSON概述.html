@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <meta charset="utf-8">
+    <title>json概述</title>
+  <script type="text/javascript">
+    /**
+     * 1.什么是json，有什么用？
+     *    JavaScript Object Notation，数据交换格式
+     *    最主要的作用是：一种标准的数据交换格式
+     * 2.json是一种标准的轻量级的数据交换格式，特点是：
+     *    体积小，易解析
+     * 3.在实际的开发中有两种数据交换格式，使用最多，其一是JSON，另一个是xml
+     *    XML体积较大，但是有其优点：语法严谨。(通常银行相关的系统之间进行数据交换的话会使用xml)
+     *    HTML和XML有一个父亲：SGML（标准通用的标记语言）
+     *    HTML主要做页面的展示：所以语法松散，很随意
+     *    XML主要做数据存储和数据描述的：所以语法相当严格
+     * 4. json语法格式：
+     *    var jsonObj = {
+     *        "属性名" : 属性值，
+     *        "属性名" : 属性值，
+     *        "属性名" : 属性值，
+     *        ...
+     *    };
+
+     */
+
+    //创建json对象(json也可以称为无类型对象)
+    var studentObj = {
+      "sno" : "110",
+      "sname" : "张三",
+      "sex" : "男"
+    }
+
+    //访问json对象的属性
+    alert(studentObj.sno + studentObj.sname + studentObj.sex);
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

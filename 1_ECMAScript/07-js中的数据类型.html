@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>js中的数据类型</title>
+    <script type="text/javascript">
+      /**
+       * js中的数据类型有哪些?
+       * js中的数据类型包括原始类型和引用类型；
+       *  ES6(ECMAScript6规范)之前的数据类型有6种：
+       *    Undefined,Number,String,Null,Boolean,Object
+       *  ES6之后的数据类型有7种:
+       *    增加了一个Symbol
+       *
+       *  原始类型；Undefined,Number,String,Null,Boolean
+       *  引用类型；Object以及子类
+       *
+       *  typeof关键字可以在程序运行阶段动态获取变量的数据类型
+       *  语法格式：
+       *    typeof 变量名
+       *  运算结果：
+       *    "undefined" "number" "string" "boolean" "object" "function"之一
+       *
+       *  在js中比较两个字符串是否相等使用“==”
+       *
+       *  注意：null属于Null类型，但是typeof null的结果是："Object"
+       *
+       *  1. Undefined类型：这个类型只有一个值，即undefined
+       *        当一个变量没有手动赋值时，系统自动赋值为undefined
+       *        也可以手动赋值为undefined
+       *  2. Number类型：包括所有实数，NaN(不是数字)，Infinity(无穷大)
+       *        NaN:运算结果本来应该是一个数字，但是算完不是一个数字了，结果就是NaN
+       *        isNaN函数：isNaN(数据)，结果是true表示不是一个数字，结果是false表示是一个数字
+       *        parseInt函数：可以将字符串转换为数字并且向下取整
+       *        parseFloat函数：可以将字符串转换为数字
+       *        Math.ceil函数：向上取整
+       *  3. Boolean类型：有两个取值：true和false
+       *        在Boolean中类型中有一个函数叫做Boolean()
+       *            语法格式：Boolean(数据)
+       *            作用：将非boolean类型转换为boolean类型，转换规律：“有”就是true,“无”就是false
+       *        在执行if语句是，if后面的括号里面如果不是Boolean类型，js会自动调用Boolean()函数将其转换为Boolean类型
+       *  4. String类型：字符串类型，可以使用"" 和 ‘’ 包裹
+       *        创建字符串对象：
+       *            第一种：var s = "abc"; (小String)typeof结果是：String
+       *            第二种：var s = new String("abc"); (大String)typeof结果是：Object
+       *        需要注意的是，String是一个内置类，可以直接使用，其父类是Object
+       *        但是无论是大String还是小String他们的属性和函数都是通用的
+       *        常用属性和函数：
+       *            indexOf(),lastIndexOf(),replace(),
+       *            subStr(startIndex,length),subString(startIndex,endIndex)不包含endIndex,
+       *            charAt(),split()...
+       *
+       *
+       *  null和NaN和undefined的区别：
+       *    1. 数据类型不一样
+       *    2. null和undefined在值上是等同的关系
+       *
+       *
+       *  Js中的==和===:
+       *  == : 只比较值
+       *  === : 既比较值又比较数据类型
+       *    null == undefined, 1 == true
+       *
+       *
+       */
+
+      function sum(a,b){
+          if(("number" == typeof a) && ("number" == typeof b)){
+              window.alert(a + " + " + b + " = " + (a+b));
+          }else{
+              window.alert("2b，那tm是数字吗，就让我加？");
+          }
+      }
+
+      function sum1(a,b){
+          if(isNaN(a) || isNaN(b)){
+              window.alert("参与运算的必须都是数字");
+              return;
+          }
+          window.alert(a + " + " + b + " = " + (a+b));
+      }
+
+      function test(){
+          alert("null == NaN? " + (null == NaN)); //false
+          alert("undefined == NaN? " + (undefined == NaN)); //false
+          alert("null == undefined? " + (null == undefined)); //true
+      }
+    </script>
+</head>
+<body>
+    <input type="button" value="正确求和" onclick="sum(1,2)">
+    <input type="button" value="错误求和" onclick="sum('a',2)">
+    <input type="button" value="isNaN的使用" onclick="sum1('abc',1)">
+
+    <input type="button" value="null和NaN和undefined的区别" onclick="test()">
+</body>
+</html>

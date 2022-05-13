@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <meta charset="utf-8">
+    <title>eval函数</title>
+  <script type="text/javascript">
+    /**
+     * eval函数的作用是：将字符串当作一段js代码解释并执行
+     *
+     * java连接数据库，查询数据后，将数据在java程序中拼接成json格式的字符串
+     * 将json格式的字符串响应到浏览器。
+     * 也就是说java响应到浏览器上的仅仅是一个json格式的字符串，还不是一个json对象
+     * 可以使用eval函数，将json格式的字符串转换为json对象
+     *
+     */
+
+    // 假设java传来的json格式的字符串信息如下：
+    var str = "{\"username\":\"zhagnsan\",\"password\" : \"123456\"}"
+    eval("var jsonObj = " + str);
+    alert(jsonObj.username + "," + jsonObj.password);
+
+    /**
+     * 在js中[]和{}的区别：
+     * []是数组，{}是json数据
+     */
+  </script>
+</head>
+<body>
+
+</body>
+</html>

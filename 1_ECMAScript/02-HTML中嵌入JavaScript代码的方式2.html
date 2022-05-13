@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+    <head>
+        <title>HTML中嵌入js代码的第二种方式</title>
+    </head>
+    <body>
+
+    <input type="button" value="这是一个按钮对象1">
+
+    <!--第二种方式：脚本块的方式-->
+    <script type="text/javascript">
+        /*
+        * 1、暴露在脚本块中的程序，在浏览器页面打开的时候执行，并且遵循自上而下的顺序依次逐行执行（这个代码的执行不需要条件）
+        * 2、js的脚本块可以在html代码的任意位置。且可以存在多个script脚本块
+        * */
+        window.alert("hello world"); //alert会阻塞整个html页面的加载。直到用户点击确定按钮
+    </script>
+
+    <input type="button" value="这是一个按钮对象2">
+    </body>
+</html>

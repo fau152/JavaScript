@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>js中的事件</title>
+    <script type="text/javascript">
+        /**
+         * Js中常用的事件：
+         *  1. blur 失去焦点
+         *  2. focus 获得焦点
+         *  3. change 下拉列表中内容改变，或者文本框内容改变
+         *  4. click 鼠标
+         *  5. dblclick 鼠标双击
+         *  6. keydown 键盘按下
+         *  7. keyup 键盘抬起
+         *  8. load 页面加载完成（html所有元素全部加载完毕之后发生）
+         *  9. mousedown 鼠标按下
+         *  10. mouseover 鼠标经过
+         *  11. mousemove 鼠标移动
+         *  12. mouseout 鼠标离开
+         *  13. mouseup 鼠标抬起
+         *  14. reset 表单重置
+         *  15. select 文本被选中
+         *  16. submit 表单提交
+         *
+         *    事件句柄：事件句柄就是在事件名前面加“on”
+         *    事件句柄在html标签中以属性的形式存在
+         *
+         *  回调函数的概念：
+         *  自己写的函数，自己不调用，被别人调用，则此函数对于“我”来说就是“回调函数”，对于调用者来说这个过程叫做“正向调用”
+         *
+         *  注册事件：
+         *    第一种方式：事件句柄的方式
+         *    第二种方式：纯js代码实现事件注册
+         *        1. 使用document获取注册对象（document是内置对象，代表整个HTML页面）
+         *           注意；以下这句代码必须在id为“btn1”的按钮初始化之后再执行，否则拿到的b1为null
+         *            var obj = document.getElementById("mybtn");
+         *        2. 给注册对象的事件句柄属性赋值
+         *            obj.onclick = doSome;
+         *            注意：这里赋值时只给函数名，不写小括号。obj.onclick = doSome()这种写法是错误的
+         */
+
+        //回调函数
+        function test(){
+            alert("鼠标按下");
+        }
+
+        function doSome1(){
+            alert("btn1 doSome");
+        }
+
+        //一般写法
+        //注意，以下这句代码必须在id为“btn1”的按钮初始化之后再执行，否则拿到的b1为null
+        window.onload = function() {
+            var b1 = document.getElementById("btn1");
+            btn1.onclick = doSome1;
+
+            //匿名函数写法
+            var b1 = document.getElementById("btn2");
+            btn2.onclick = function () {
+                alert("btn2 doSome");
+            }
+
+            //常用写法
+            document.getElementById("btn3").onclick = function () {
+                alert("brn3 doSome");
+            }
+        }
+    </script>
+</head>
+<body>
+    <!--以下代码将test函数注册到按钮上，等mousedown事件发生后，该函数由浏览器调用，称该函数为回调函数-->
+    <input type="button" value="test" onmousedown="test()">
+    <br>
+    <input type="button" value="btn1" id="btn1">
+    <input type="button" value="btn2" id="btn2">
+    <input type="button" value="btn3" id="btn3">
+</body>
+</html>

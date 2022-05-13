@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>获取下拉列表中的选项value</title>
+  <script type="text/javascript">
+    window.onload = function(){
+      document.getElementById("sheng").onchange = function(){
+        alert(document.getElementById("sheng").value);
+      }
+    }
+
+    /**
+     * 通过这个onchange这个时间我们可以实现
+     * 选择省份之后，根据拿到的value值，去数据库中查询这个省份的所有的市
+     * 返回一个List集合，
+     * 由前端解析产生一个新的select控件选择市
+     */
+  </script>
+</head>
+<body>
+<select id="sheng">
+  <option value="">--请选择省份--</option>
+  <option value="gs">甘肃省</option>
+  <option value="hlj">黑龙江省</option>
+  <option value="hn">河南省</option>
+  <option value="sx">陕西省</option>
+</select>
+</body>
+</html>
